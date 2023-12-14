@@ -1,6 +1,5 @@
 package com.project;
 
-import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -8,22 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/*
- * Aquest exemple mostra com fer una 
- * connexió a SQLite amb Java
- * 
- * A la primera crida, crea l'arxiu 
- * de base de dades hi posa dades,
- * després les modifica
- * 
- * A les següent crides ja estan
- * originalment modificades
- * (tot i que les sobreescriu cada vegada)
- */
-
-public class Main {
-
-   static Scanner in = new Scanner(System.in); // System.in és global, Scanner també ho a de ser
+public class Mostrar_lista {
+      static Scanner in = new Scanner(System.in); // System.in és global, Scanner també ho a de ser
 
     // Main
     public static void main(String[] args) throws InterruptedException, IOException {
@@ -33,20 +18,18 @@ public class Main {
         while (running) {
 
             String menu = "Escull una opció:";
-            menu = menu + "\n 0) Mostrar_lista";
-            menu = menu + "\n 1) PR141Main";
-            menu = menu + "\n 2) PR142Main";
-            menu = menu + "\n 3) Sortir";
+            menu = menu + "\n 0) Listar_personajes";
+            menu = menu + "\n 1) Listar_faciones";
+            menu = menu + "\n 2) Sortir";
             System.out.println(menu);
 
             int opcio = Integer.valueOf(llegirLinia("Opció:"));
             
             try {
                 switch (opcio) {
-                    case 0: Mostrar_lista.main(args);                break;
+                    case 0: Listar_personajes.main(args);                break;
                     //case 1: PR141Main.main(args);                break;
-                    //case 2: PR142Main.main(args);                break;
-                    case 3: running = false;                       break;
+                    case 2: Main.main(args);              break;
                     default: break;
                 }
             } catch (Exception e) {
@@ -61,7 +44,5 @@ public class Main {
         System.out.print(text);
         return in.nextLine();
     }
-    static public void listar(){
-        
-    }
+
 }
