@@ -33,7 +33,7 @@ public class Main {
         while (running) {
 
             String menu = "Escull una opció:";
-            menu = menu + "\n 0) Mostrar_lista";
+            menu = menu + "\n 0) Mostrar tablas";
             menu = menu + "\n 1) PR141Main";
             menu = menu + "\n 2) PR142Main";
             menu = menu + "\n 3) Sortir";
@@ -43,7 +43,7 @@ public class Main {
             
             try {
                 switch (opcio) {
-                    case 0: Mostrar_lista.main(args);                break;
+                    case 0: listar(args);                break;
                     //case 1: PR141Main.main(args);                break;
                     //case 2: PR142Main.main(args);                break;
                     case 3: running = false;                       break;
@@ -61,7 +61,22 @@ public class Main {
         System.out.print(text);
         return in.nextLine();
     }
-    static public void listar(){
-        
+    static public void listar(String[] args) throws InterruptedException, IOException, SQLException{
+         boolean running = true;
+
+        while (running) {
+        String menu = "Escull una opció:";
+        menu = menu + "\n 0) Listar_personajes";
+        menu = menu + "\n 1) Listar_faciones";
+        menu = menu + "\n 2) Sortir";
+        System.out.println(menu);
+        int opcio = Integer.valueOf(llegirLinia("Opció:"));
+        switch (opcio) {
+            case 0: Listar_personajes.main(args);                break;
+            case 1: Listar_faciones.main(args);                  break;
+            case 2: running = false;                             break;
+            default: break;
+        }
     }
+}
 }
