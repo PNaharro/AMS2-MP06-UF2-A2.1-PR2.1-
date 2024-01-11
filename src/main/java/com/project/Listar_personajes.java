@@ -2,6 +2,7 @@ package com.project;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -16,43 +17,25 @@ public class Listar_personajes {
         // Llistar les taules
         ArrayList<String> taules = UtilsSQLite.listTables(conn);
         System.out.println(taules);
-
-
-
-
-        // Demanar informació de la taula
-        // rs = UtilsSQLite.querySelect(conn, "SELECT * FROM warehouses;");
-        // ResultSetMetaData rsmd = rs.getMetaData();
-        // System.out.println("Informació de la taula:");
-        // for (int cnt = 1; cnt < rsmd.getColumnCount(); cnt = cnt + 1) { 
-        //     // Les columnes començen a 1, no hi ha columna 0!
-        //     String label = rsmd.getColumnLabel(cnt);
-        //     String name = rsmd.getColumnName(cnt);
-        //     int type = rsmd.getColumnType(cnt);
-        //     System.out.println("    " + label + ", " + name + ", " + type);
-        // }
-
-        // // SELECT a la base de dades
-        // rs = UtilsSQLite.querySelect(conn, "SELECT * FROM warehouses;");
-        // System.out.println("Contingut de la taula:");
-        // while (rs.next()) {
-        //     System.out.println("    " + rs.getInt("id") + ", " + rs.getString("name"));
-        // }
-
-        // // Actualitzar una fila
-        // UtilsSQLite.queryUpdate(conn, "UPDATE warehouses SET name=\"MediaMarkt\" WHERE id=2;");
-
-        // // Esborrar una fila
-        // UtilsSQLite.queryUpdate(conn, "DELETE FROM warehouses WHERE id=3;");
-
-        // // SELECT a la base de dades
-        // rs = UtilsSQLite.querySelect(conn, "SELECT * FROM warehouses;");
-        // System.out.println("Contingut de la taula modificada:");
-        // while (rs.next()) {
-        //     System.out.println("    " + rs.getInt("id") + ", " + rs.getString("name"));
-        // }
-
-        // Desconnectar
+        System.out.println(taules.get(1));
+        displayTableContent(conn,taules.get(1));
+      
         UtilsSQLite.disconnect(conn);
+    }
+     static void displayTableContent(Connection conn, String tableName) throws SQLException {
+        ResultSet rs = UtilsSQLite.querySelect(conn, "SELECT * FROM " + tableName + ";");
+        System.out.println("Content of " + tableName + ":");
+
+        ResultSetMetaData rsmd = rs.getMetaData();
+        int columnCount = rsmd.getColumnCount();
+
+        while (rs.next()) {
+            System.out.print("    ");
+            for (int i = 1; i <= columnCount; i++) {
+                System.out.print(rsmd.getColumnName(i) + ": " + rs.getString(i) + ", ");
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 }

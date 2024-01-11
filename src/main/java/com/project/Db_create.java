@@ -33,10 +33,10 @@ public class Db_create {
                                     + "	nom varchar(15) NOT NULL,"
                                     + "	resum varchar(500) NOT NULL);");
 
-        UtilsSQLite.queryUpdate(conn, "INSERT INTO Facció (nom, resumen) VALUES (\"Cavalleros\", \"Orden noble de caballeros\");");
-        UtilsSQLite.queryUpdate(conn, "INSERT INTO Facció (nom, resumen) VALUES (\"Vikingos\", \"Guerreros nórdicos intrépidos\");");
-        UtilsSQLite.queryUpdate(conn, "INSERT INTO Facció (nom, resumen) VALUES (\"Samurais\", \"Guerreros japoneses con honor\");");
-        UtilsSQLite.queryUpdate(conn, "INSERT INTO Facció (nom, resumen) VALUES (\"Wu lin\",\"Facción de guerreros chinos\");");
+        UtilsSQLite.queryUpdate(conn, "INSERT INTO Facció (nom, resum) VALUES ('Cavalleros', 'Orden noble de caballeros');");
+        UtilsSQLite.queryUpdate(conn, "INSERT INTO Facció (nom, resum) VALUES ('Vikingos', 'Guerreros nórdicos intrépidos');");
+        UtilsSQLite.queryUpdate(conn, "INSERT INTO Facció (nom, resum) VALUES ('Samurais', 'Guerreros japoneses con honor');");
+        UtilsSQLite.queryUpdate(conn, "INSERT INTO Facció (nom, resum) VALUES ('Wu lin','Facción de guerreros chinos');");
 
         UtilsSQLite.queryUpdate(conn, "CREATE TABLE IF NOT EXISTS Personatge ("
                                     + "	id integer PRIMARY KEY AUTOINCREMENT,"
@@ -46,21 +46,21 @@ public class Db_create {
                                     + "	idFaccio integer NOT NULL,"
                                     + "	FOREIGN KEY (idFaccio) REFERENCES Facció(id));");
 
-        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personaje (nom, ataque, defensa, idFaccion) VALUES (\"Warden\", 15.2, 10.0, 1);");
-        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personaje (nom, ataque, defensa, idFaccion) VALUES (\"Centurion\", 14.8, 9.5, 1);");
-        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personaje (nom, ataque, defensa, idFaccion) VALUES (\"Gladiador\", 13.5, 8.0, 1);");
+        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personatge (nom, atac, defensa, idFaccio) VALUES ('Warden', 15.2, 10.0, 1);");
+        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personatge (nom, atac, defensa, idFaccio) VALUES ('Centurion', 14.8, 9.5, 1);");
+        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personatge (nom, atac, defensa, idFaccio) VALUES ('Gladiador', 13.5, 8.0, 1);");
     
-        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personaje (nom, ataque, defensa, idFaccion) VALUES (\"Raider\", 14.5, 9.0, 2);");
-        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personaje (nom, ataque, defensa, idFaccion) VALUES (\"Warlord\", 13.7, 8.5, 2);");
-        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personaje (nom, ataque, defensa, idFaccion) VALUES (\"Valkyrie\", 12.9, 7.8, 2);");
+        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personatge (nom, atac, defensa, idFaccio) VALUES ('Raider', 14.5, 9.0, 2);");
+        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personatge (nom, atac, defensa, idFaccio) VALUES ('Warlord', 13.7, 8.5, 2);");
+        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personatge (nom, atac, defensa, idFaccio) VALUES ('Valkyrie', 12.9, 7.8, 2);");
     
-        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personaje (nom, ataque, defensa, idFaccion) VALUES (\"Shinobi\", 11.5, 8.2, 3);");
-        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personaje (nom, ataque, defensa, idFaccion) VALUES (\"Orochi\", 12.0, 8.7, 3);");
-        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personaje (nom, ataque, defensa, idFaccion) VALUES (\"Nobushi\", 11.2, 8.5, 3);");
+        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personatge (nom, atac, defensa, idFaccio) VALUES ('Shinobi', 11.5, 8.2, 3);");
+        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personatge (nom, atac, defensa, idFaccio) VALUES ('Orochi', 12.0, 8.7, 3);");
+        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personatge (nom, atac, defensa, idFaccio) VALUES ('Nobushi', 11.2, 8.5, 3);");
     
-        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personaje (nom, ataque, defensa, idFaccion) VALUES (\"Tiandi\", 14.0, 9.5, 4);");
-        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personaje (nom, ataque, defensa, idFaccion) VALUES (\"Nuxia\", 13.3, 8.8, 4);");
-        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personaje (nom, ataque, defensa, idFaccion) VALUES (\"Shaolin\", 15.5, 10.2, 4);");
+        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personatge (nom, atac, defensa, idFaccio) VALUES ('Tiandi', 14.0, 9.5, 4);");
+        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personatge (nom, atac, defensa, idFaccio) VALUES ('Nuxia', 13.3, 8.8, 4);");
+        UtilsSQLite.queryUpdate(conn, "INSERT INTO Personatge (nom, atac, defensa, idFaccio) VALUES ('Shaolin', 15.5, 10.2, 4);");
 
 
         // Desconnectar

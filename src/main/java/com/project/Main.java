@@ -28,15 +28,17 @@ public class Main {
     // Main
     public static void main(String[] args) throws InterruptedException, IOException {
         
+        
         boolean running = true;
 
         while (running) {
 
             String menu = "Escull una opció:";
             menu = menu + "\n 0) Mostrar tablas";
-            menu = menu + "\n 1) PR141Main";
-            menu = menu + "\n 2) PR142Main";
-            menu = menu + "\n 3) Sortir";
+            menu = menu + "\n 1) Mostrar Personajes Por Faccion";
+            menu = menu + "\n 2) Mostrar Millor Atacant Per Faccio";
+            menu = menu + "\n 3) Mostrar Millor Defensor Per Faccio";
+            menu = menu + "\n 4) Sortir";
             System.out.println(menu);
 
             int opcio = Integer.valueOf(llegirLinia("Opció:"));
@@ -44,9 +46,10 @@ public class Main {
             try {
                 switch (opcio) {
                     case 0: listar(args);                break;
-                    //case 1: PR141Main.main(args);                break;
-                    //case 2: PR142Main.main(args);                break;
-                    case 3: running = false;                       break;
+                    case 1: MostrarPersonajesPorFaccion.main(args);                  break;
+                    case 2: MostrarMillorAtacantPerFaccio.main(args);                break;
+                    case 3: MostrarMillorDefensorPerFaccio.main(args);               break;
+                    case 4: running = false;                       break;
                     default: break;
                 }
             } catch (Exception e) {
